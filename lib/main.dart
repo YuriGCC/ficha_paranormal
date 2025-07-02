@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'app/themes.dart';
-import 'modules/home/home_screen.dart';
+import 'app/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,15 +9,14 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Ficha Paranormal',
+      initialRoute: '/',
       theme: darkTheme,
-      home: HomeScreen(),
+      routes: routes,
     );
   }
 }
-
