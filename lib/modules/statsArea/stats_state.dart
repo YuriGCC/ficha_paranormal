@@ -7,6 +7,13 @@ class StatsState extends State<StatsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: NavigationAppBar(title: 'Ficha'),
+      body: SingleChildScrollView(
+        child: Row(
+          children: [
+
+          ],
+        ),
+      ),
     );
   }
   

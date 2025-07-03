@@ -1,3 +1,4 @@
+import 'package:ficha_paranormal/models/attack.dart';
 import 'package:flutter/material.dart';
 import 'package:ficha_paranormal/utils/widgets/navigation_bar.dart';
 import 'package:ficha_paranormal/modules/attackList/attackListScreen.dart';
@@ -6,13 +7,19 @@ import 'package:ficha_paranormal/modules/attackList/attackListController.dart';
 class AttackListState extends State<AttackListScreen> {
   final controller = AttackListController();
 
-  List<String> ataques = [];
+  List<Attack> attackList = [];
 
   void addAttackInTable(String attack) {
     if (attack.isEmpty) return;
     setState(() {
-      ataques.add(attack);
-      controller.nameInput.clear();
+      Attack attack = Attack(
+        name: controller.nameInput.text,
+        test: controller.testInput.text,
+        damage: controller.damageInput.text,
+        extraInfo: controller.extraInfoInput.text,
+      );
+      attackList.add(attack);
+      controller.clear();
     });
   }
 
@@ -23,28 +30,72 @@ class AttackListState extends State<AttackListScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          TextField(
-            controller: controller.nameInput,
-            decoration: InputDecoration(hintText: 'Nome da habilidade'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: TextField(
+                    controller: controller.nameInput,
+                    decoration: InputDecoration(hintText: 'Nome da habilidade'),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: TextField(
+                    controller: controller.testInput,
+                    decoration: InputDecoration(hintText: 'Teste'),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: TextField(
+                    controller: controller.damageInput,
+                    decoration: InputDecoration(hintText: 'Dano'),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: TextField(
+                    controller: controller.extraInfoInput,
+                    decoration: InputDecoration(
+                      hintText: 'Critico/Alcance/Especial',
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: 20),
           Row(
             children: [
-              ElevatedButton(
-                onPressed: () {
-                  addAttackInTable(controller.nameInput.text);
-                },
-                child: const Text('Adicionar'),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    addAttackInTable(controller.nameInput.text);
+                  },
+                  child: const Text('Adicionar'),
+                ),
               ),
-              const SizedBox(width: 10),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    ataques.clear();
-                    controller.nameInput.clear();
-                  });
-                },
-                child: const Text('Limpar campos'),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      attackList.clear();
+                      controller.clear();
+                    });
+                  },
+                  child: const Text('Limpar campos'),
+                ),
               ),
             ],
           ),
@@ -59,18 +110,56 @@ class AttackListState extends State<AttackListScreen> {
                   children: [
                     Padding(
                       padding: EdgeInsets.all(8),
-                      child: Text('Nome', style: TextStyle(fontWeight: FontWeight.bold)),
+                      child: Text(
+                        'Ataque',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(8),
+                      child: Text(
+                        'Teste',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(8),
+                      child: Text(
+                        'Dano',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(8),
+                      child: Text(
+                        'Critico/Alcance/Especial',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ],
                 ),
-                ...ataques.map((attack) => TableRow(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.all(8),
-                      child: Text(attack),
-                    ),
-                  ],
-                )),
+                ...attackList.map(
+                  (attack) => TableRow(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(8),
+                        child: Text(attack.name),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8),
+                        child: Text(attack.test),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8),
+                        child: Text(attack.damage),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8),
+                        child: Text(attack.extraInfo),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
@@ -78,5 +167,10 @@ class AttackListState extends State<AttackListScreen> {
       ),
     );
   }
-}
 
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+}
