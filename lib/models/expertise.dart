@@ -4,14 +4,14 @@ import 'package:ficha_paranormal/models/attributes.dart';
 class Expertise {
   TrainingDegreeEnum trainingDegreeEnum = TrainingDegreeEnum.untrained;
 
-  final int Function(Attributes) baseExtractor;
-  final Attributes attributes = Attributes(
+   int Function(Attributes) baseExtractor;
+   Attributes attributes = Attributes(
       agility: 0,
       strength: 0,
       intellect: 0,
       presence: 0,
       vigor: 0
-  );
+   );
   final bool onlyTrained;
   final bool needCarry;
   final bool needKit;

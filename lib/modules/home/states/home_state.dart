@@ -9,7 +9,7 @@ class HomeState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: NavigationAppBar(title: 'Home'),
+        appBar: NavigationAppBar(title: 'Área de Testes'),
         body: DiceRollViewerWidget()
     );
   }
