@@ -16,8 +16,10 @@ class Expertise {
   final bool needCarry;
   final bool needKit;
   final String name;
+  bool isTrained = false;
+  bool haveKit = false;
+  bool overloadCarry = false;
   int get baseAttribute => baseExtractor(attributes);
-  int get value => baseAttribute +  trainingDegreeEnum.bonus;
 
   Expertise({required this.baseExtractor, required this.onlyTrained,
     required this.needCarry, required this.needKit, required this.name

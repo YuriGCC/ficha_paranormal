@@ -1,9 +1,9 @@
 class Attributes {
-  final int agility;
-  final int strength;
-  final int intellect;
-  final int presence;
-  final int vigor;
+  int agility;
+  int strength;
+  int intellect;
+  int presence;
+  int vigor;
 
   Attributes({
     required this.agility,
