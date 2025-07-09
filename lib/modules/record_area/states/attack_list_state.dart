@@ -1,8 +1,8 @@
 import 'package:ficha_paranormal/models/attack.dart';
 import 'package:flutter/material.dart';
 import 'package:ficha_paranormal/utils/widgets/navigation_bar.dart';
-import 'package:ficha_paranormal/modules/attack_list/attack_list_screen.dart';
-import 'package:ficha_paranormal/modules/attack_list/controllers/attack_list_controller.dart';
+import 'package:ficha_paranormal/modules/record_area/widgets/attack_list_widget.dart';
+import 'package:ficha_paranormal/modules/record_area/controllers/attack_list_controller.dart';
 
 class AttackListState extends State<AttackListScreen> {
   final controller = AttackListController();

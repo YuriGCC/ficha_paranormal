@@ -2,7 +2,7 @@ import 'package:ficha_paranormal/modules/home/home_screen.dart';
 import 'package:ficha_paranormal/modules/stats_area/stats_screen.dart';
 import 'package:ficha_paranormal/modules/description/description_screen.dart';
 import 'package:ficha_paranormal/modules/inventory/inventory_screen.dart';
-import 'package:ficha_paranormal/modules/attack_list/attack_list_screen.dart';
+import 'package:ficha_paranormal/modules/record_area/widgets/attack_list_widget.dart';
 import 'package:flutter/material.dart';
 
 final Map<String, WidgetBuilder> routes = {

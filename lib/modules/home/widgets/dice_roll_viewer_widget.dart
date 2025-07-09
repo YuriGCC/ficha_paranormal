@@ -99,9 +99,10 @@ class _DiceRollViewerWidgetState extends State<DiceRollViewerWidget> {
             child: Row(
               children: [
                 ...diceOptions.map((dieData) {
-                  return Expanded(
+                  return
+                    Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      padding: const EdgeInsets.symmetric(horizontal: 1),
                       child: ElevatedButton(
                         onPressed: () {
                           final object = diceObjectsByName[dieData.name];
