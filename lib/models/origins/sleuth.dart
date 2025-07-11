@@ -1,6 +1,6 @@
 import 'package:ficha_paranormal/models/origin.dart';
-import 'package:ficha_paranormal/models/skills/investigation.dart';
-import 'package:ficha_paranormal/models/skills/perception.dart';
+import 'package:ficha_paranormal/models/expertises/investigation.dart';
+import 'package:ficha_paranormal/models/expertises/perception.dart';
 
 class Sleuth extends Origin {
   Sleuth() : super(

@@ -1,6 +1,6 @@
 import 'package:ficha_paranormal/models/origin.dart';
-import 'package:ficha_paranormal/models/skills/crime.dart';
-import 'package:ficha_paranormal/models/skills/deception.dart';
+import 'package:ficha_paranormal/models/expertises/crime.dart';
+import 'package:ficha_paranormal/models/expertises/deception.dart';
 
 class Swindler extends Origin {
   Swindler() : super(

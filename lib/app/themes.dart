@@ -7,11 +7,9 @@ final ThemeData darkTheme = ThemeData(
   colorScheme: ColorScheme.dark(
     primary: Colors.red.shade900,
     secondary: Colors.grey.shade600,
-    background: const Color(0xFF121212),
-    surface: const Color(0xFF1E1E1E),
+    surface: const Color(0xFF121212),
     onPrimary: Colors.white,
     onSecondary: Colors.white70,
-    onBackground: Colors.white70,
     onSurface: Colors.white70,
   ),
   appBarTheme: const AppBarTheme(

@@ -1,6 +1,6 @@
 import 'package:ficha_paranormal/models/origin.dart';
-import 'package:ficha_paranormal/models/skills/religion.dart';
-import 'package:ficha_paranormal/models/skills/willpower.dart';
+import 'package:ficha_paranormal/models/expertises/religion.dart';
+import 'package:ficha_paranormal/models/expertises/willpower.dart';
 
 class Religious extends Origin {
   Religious() : super(

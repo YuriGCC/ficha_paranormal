@@ -33,11 +33,11 @@ class NavigationAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
         ),
         Visibility(
-          visible: ModalRoute.of(context)?.settings.name != '/attack_list',
+          visible: ModalRoute.of(context)?.settings.name != '/record_area',
           child: IconButton(
             icon: const Icon(Icons.whatshot, color: Colors.white),
             onPressed: () {
-              Navigator.pushReplacementNamed(context, '/attack_list');
+              Navigator.pushReplacementNamed(context, '/record_area');
             },
           ),
         ),

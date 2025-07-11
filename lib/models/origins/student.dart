@@ -1,6 +1,6 @@
 import 'package:ficha_paranormal/models/origin.dart';
-import 'package:ficha_paranormal/models/skills/current_affairs.dart';
-import 'package:ficha_paranormal/models/skills/investigation.dart';
+import 'package:ficha_paranormal/models/expertises/current_affairs.dart';
+import 'package:ficha_paranormal/models/expertises/investigation.dart';
 
 class Student extends Origin {
   Student() : super(

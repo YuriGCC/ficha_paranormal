@@ -1,10 +1,10 @@
 import 'package:ficha_paranormal/models/training_degree_enum.dart';
 import 'package:ficha_paranormal/models/attributes.dart';
 
-class Expertise {
+abstract class Expertise {
   TrainingDegreeEnum trainingDegreeEnum = TrainingDegreeEnum.untrained;
 
-   int Function(Attributes) baseExtractor;
+   AttributeType attributeType;
    Attributes attributes = Attributes(
       agility: 0,
       strength: 0,
@@ -12,6 +12,7 @@ class Expertise {
       presence: 0,
       vigor: 0
    );
+
   final bool onlyTrained;
   final bool needCarry;
   final bool needKit;
@@ -19,9 +20,17 @@ class Expertise {
   bool isTrained = false;
   bool haveKit = false;
   bool overloadCarry = false;
-  int get baseAttribute => baseExtractor(attributes);
+  int get baseAttribute => attributes.getValue(attributeType);
+  String get attributeName => Attributes.getName(attributeType);
+  Map<String, Function> get methods => {};
 
-  Expertise({required this.baseExtractor, required this.onlyTrained,
-    required this.needCarry, required this.needKit, required this.name
+  Expertise({
+    required this.onlyTrained,
+    required this.needCarry,
+    required this.needKit,
+    required this.name,
+    required this.attributeType
   });
+
+
 }

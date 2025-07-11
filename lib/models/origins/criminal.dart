@@ -1,6 +1,6 @@
 import 'package:ficha_paranormal/models/origin.dart';
-import 'package:ficha_paranormal/models/skills/crime.dart';
-import 'package:ficha_paranormal/models/skills/stealth.dart';
+import 'package:ficha_paranormal/models/expertises/crime.dart';
+import 'package:ficha_paranormal/models/expertises/stealth.dart';
 
 class Criminal extends Origin {
   Criminal() : super(

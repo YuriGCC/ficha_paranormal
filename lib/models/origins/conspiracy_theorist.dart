@@ -1,6 +1,6 @@
 import 'package:ficha_paranormal/models/origin.dart';
-import 'package:ficha_paranormal/models/skills/investigation.dart';
-import 'package:ficha_paranormal/models/skills/occultism.dart';
+import 'package:ficha_paranormal/models/expertises/investigation.dart';
+import 'package:ficha_paranormal/models/expertises/occultism.dart';
 
 class ConspiracyTheorist extends Origin {
   ConspiracyTheorist() : super(

@@ -1,6 +1,6 @@
 import 'package:ficha_paranormal/models/origin.dart';
-import 'package:ficha_paranormal/models/skills/arts.dart';
-import 'package:ficha_paranormal/models/skills/deception.dart';
+import 'package:ficha_paranormal/models/expertises/arts.dart';
+import 'package:ficha_paranormal/models/expertises/deception.dart';
 
 class Artist extends Origin {
   Artist() : super(

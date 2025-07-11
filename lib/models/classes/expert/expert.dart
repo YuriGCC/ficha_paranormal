@@ -1,10 +1,10 @@
 import 'package:ficha_paranormal/models/attributes.dart';
 import 'package:ficha_paranormal/models/class.dart';
 import 'package:ficha_paranormal/models/proficiency_enum.dart';
-import 'package:ficha_paranormal/models/skills/fortitude.dart';
-import 'package:ficha_paranormal/models/skills/marksmanship.dart';
-import 'package:ficha_paranormal/models/skills/melee_combat.dart';
-import 'package:ficha_paranormal/models/skills/reflexes.dart';
+import 'package:ficha_paranormal/models/expertises/fortitude.dart';
+import 'package:ficha_paranormal/models/expertises/marksmanship.dart';
+import 'package:ficha_paranormal/models/expertises/melee_combat.dart';
+import 'package:ficha_paranormal/models/expertises/reflexes.dart';
 
 class Expert extends Class {
   Expert(Attributes attributes) : super(

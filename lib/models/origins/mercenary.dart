@@ -1,6 +1,6 @@
 import 'package:ficha_paranormal/models/origin.dart';
-import 'package:ficha_paranormal/models/skills/intimidation.dart';
-import 'package:ficha_paranormal/models/skills/iniciative.dart';
+import 'package:ficha_paranormal/models/expertises/intimidation.dart';
+import 'package:ficha_paranormal/models/expertises/iniciative.dart';
 
 class Mercenary extends Origin {
   Mercenary() : super(

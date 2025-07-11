@@ -1,7 +1,6 @@
-import 'package:ficha_paranormal/modules/home/widgets/dice_roller.dart';
 import 'package:flutter/material.dart';
 import 'package:ficha_paranormal/modules/home/home_screen.dart';
-import 'package:ficha_paranormal/modules/home/widgets/dice_roll_viewer_widget.dart';
+import 'package:ficha_paranormal/utils/widgets/dice_roll_viewer_widget.dart';
 import 'package:ficha_paranormal/utils/widgets/navigation_bar.dart';
 
 class HomeState extends State<HomeScreen> {

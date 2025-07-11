@@ -1,6 +1,6 @@
 import 'package:ficha_paranormal/models/origin.dart';
-import 'package:ficha_paranormal/models/skills/diplomacy.dart';
-import 'package:ficha_paranormal/models/skills/profession.dart';
+import 'package:ficha_paranormal/models/expertises/diplomacy.dart';
+import 'package:ficha_paranormal/models/expertises/profession.dart';
 
 class Executive extends Origin {
   Executive() : super(

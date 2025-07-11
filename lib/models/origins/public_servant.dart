@@ -1,6 +1,6 @@
 import 'package:ficha_paranormal/models/origin.dart';
-import 'package:ficha_paranormal/models/skills/insight.dart';
-import 'package:ficha_paranormal/models/skills/willpower.dart';
+import 'package:ficha_paranormal/models/expertises/insight.dart';
+import 'package:ficha_paranormal/models/expertises/willpower.dart';
 
 class PublicServant extends Origin {
   PublicServant() : super(

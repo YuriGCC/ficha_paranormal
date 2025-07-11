@@ -1,6 +1,6 @@
 import 'package:ficha_paranormal/models/origin.dart';
-import 'package:ficha_paranormal/models/skills/investigation.dart';
-import 'package:ficha_paranormal/models/skills/technology.dart';
+import 'package:ficha_paranormal/models/expertises/investigation.dart';
+import 'package:ficha_paranormal/models/expertises/technology.dart';
 
 class Techie extends Origin {
   Techie() : super(

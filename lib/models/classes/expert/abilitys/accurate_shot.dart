@@ -1,5 +1,5 @@
 import 'package:ficha_paranormal/models/ability.dart';
-import 'package:ficha_paranormal/models/skills/marksmanship.dart';
+import 'package:ficha_paranormal/models/expertises/marksmanship.dart';
 
 class AccurateShow extends Ability {
   AccurateShow() : super(

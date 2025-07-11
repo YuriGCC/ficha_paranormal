@@ -1,6 +1,6 @@
 import 'package:ficha_paranormal/models/origin.dart';
-import 'package:ficha_paranormal/models/skills/science.dart';
-import 'package:ficha_paranormal/models/skills/investigation.dart';
+import 'package:ficha_paranormal/models/expertises/science.dart';
+import 'package:ficha_paranormal/models/expertises/investigation.dart';
 
 class Scholar extends Origin {
   Scholar() : super(

@@ -1,6 +1,6 @@
 import 'package:ficha_paranormal/models/origin.dart';
-import 'package:ficha_paranormal/models/skills/fortitude.dart';
-import 'package:ficha_paranormal/models/skills/profession.dart';
+import 'package:ficha_paranormal/models/expertises/fortitude.dart';
+import 'package:ficha_paranormal/models/expertises/profession.dart';
 
 class Chef extends Origin {
   Chef() : super(

@@ -1,6 +1,6 @@
 import 'package:ficha_paranormal/models/origin.dart';
-import 'package:ficha_paranormal/models/skills/acrobatics.dart';
-import 'package:ficha_paranormal/models/skills/athletics.dart';
+import 'package:ficha_paranormal/models/expertises/acrobatics.dart';
+import 'package:ficha_paranormal/models/expertises/athletics.dart';
 
 class Athlete extends Origin {
   Athlete() : super(
