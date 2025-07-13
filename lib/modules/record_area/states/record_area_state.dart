@@ -132,7 +132,7 @@ class RecordAreaState extends State<RecordAreaScreen> {
 
   void openTestArea(Expertise expertise) {
     final methods = expertise.methods;
-    Navigator.pushNamed(context, '/do_test');
+    Navigator.pushNamed(context, '/do_expertise_test');
     methods.forEach((name, func) {
     });
   }
