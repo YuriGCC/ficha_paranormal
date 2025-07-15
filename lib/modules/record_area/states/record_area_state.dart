@@ -59,7 +59,7 @@ class RecordAreaState extends State<RecordAreaScreen> {
                                   ...characterRecord.expertises.map((expertise) {
                                     return Card(
                                       child: Container(
-                                        height: 180,
+                                        height: 200,
                                         padding: const EdgeInsets.all(8),
                                         child: Column(
                                           children: [
@@ -131,9 +131,10 @@ class RecordAreaState extends State<RecordAreaScreen> {
   }
 
   void openTestArea(Expertise expertise) {
-    final methods = expertise.methods;
-    Navigator.pushNamed(context, '/do_expertise_test');
-    methods.forEach((name, func) {
-    });
+    Navigator.pushNamed(
+      context,
+      '/do_expertise_test',
+      arguments: expertise,
+    );
   }
 }

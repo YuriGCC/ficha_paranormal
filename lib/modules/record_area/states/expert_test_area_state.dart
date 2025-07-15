@@ -1,21 +1,30 @@
+import 'package:ficha_paranormal/models/expertise.dart';
 import 'package:ficha_paranormal/modules/record_area/widgets/expertise_test_area_widget.dart';
 import 'package:ficha_paranormal/utils/widgets/dice_roll_viewer_widget.dart';
 import 'package:flutter/material.dart';
 
 class ExpertiseTestAreaState extends State<ExpertiseTestAreaWidget> {
-  String resultadoMensagem = '';
+  int? lastRolledValue;
+  late Expertise expertise;
 
-  void verificarResultado(String label, int result) {
-    if (label == 'D20' && result > 15) {
-      setState(() {
-        resultadoMensagem = 'Habilidade 1: Sucesso! ($result)';
-      });
-    } else if (label == 'D20') {
-      setState(() {
-        resultadoMensagem = 'Habilidade 1: Falhou. ($result)';
-      });
+  void callDiceResult(String label, int result) {
+    setState(() {
+      lastRolledValue = result;
+    });
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final args = ModalRoute.of(context)?.settings.arguments;
+
+    if (args is Expertise) {
+      expertise = args;
+    } else {
+      throw ArgumentError('Erro ao passar perícia para ser testada');
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -26,22 +35,31 @@ class ExpertiseTestAreaState extends State<ExpertiseTestAreaWidget> {
           Expanded(
             flex: 3,
             child: Column(
-              children: [
-                const Text(
-                  'Teste de Habilidade 1:\nRole um D20, se tirar >10, passa.',
-                  style: TextStyle(fontSize: 18),
-                ),
-                const SizedBox(height: 20),
-                Text(
-                  resultadoMensagem,
-                  style: TextStyle(
-                      fontSize: 20,
-                      color: resultadoMensagem.contains('Sucesso')
-                          ? Colors.green
-                          : Colors.red),
-                ),
-              ],
-            ),
+                children: expertise.methods.entries.map((possibility) {
+                  return ListTile(
+                    title: Text(possibility.key),
+                    onTap: () {
+                      if (lastRolledValue == null) {
+                        showDialog(
+                          context: context,
+                          builder: (_) => const AlertDialog(
+                            content: Text('Você precisa rolar um dado primeiro.'),
+                          ),
+                        );
+                        return;
+                      }
+
+                      final result = possibility.value.call(lastRolledValue);
+                      showDialog(
+                        context: context,
+                        builder: (_) => AlertDialog(
+                          content: Text(result.toString()),
+                        ),
+                      );
+                    },
+                  );
+                }).toList(),
+              ),
           ),
           Expanded(
             flex: 2,
@@ -49,7 +67,7 @@ class ExpertiseTestAreaState extends State<ExpertiseTestAreaWidget> {
               children: [
                 Expanded(
                   child: DiceRollViewerWidget(
-                    onDiceRolled: verificarResultado,
+                    onDiceRolled: callDiceResult,
                   ),
                 ),
               ],

@@ -8,11 +8,24 @@ class Acrobatics extends Expertise {
       onlyTrained: false,
       needCarry: true,
       attributeType: AttributeType.agility,
-      needKit: false
+      needKit: false,
   );
 
-  cushionFall(DT) {
-    if (trainingDegreeEnum == TrainingDegreeEnum.veteran && DT >=15) {
+  @override
+  Map<String, Function> get methods => {
+    'amortecer queda': (DT) => cushionFall(DT)
+  };
+
+  String cushionFall(int dt) {
+    if (trainingDegreeEnum == TrainingDegreeEnum.untrained ||
+        trainingDegreeEnum == TrainingDegreeEnum.trained) {
+      return 'Você não treinou o suficiente para esta técnica.';
     }
+
+    if (dt + trainingDegreeEnum.bonus >= 15) {
+      return 'O dano pode ser reduzido em 1d6, além de mais 1d6 para cada 5 pontos acima do necessário.';
+    }
+
+    return 'Você não conseguiu amortecer a queda.';
   }
 }
