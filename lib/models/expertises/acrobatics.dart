@@ -13,7 +13,7 @@ class Acrobatics extends Expertise {
 
   @override
   Map<String, Function> get methods => {
-    'amortecer queda': (DT) => cushionFall(DT)
+    'amortecer queda: 1D20': (DT) => cushionFall(DT)
   };
 
   String cushionFall(int dt) {

@@ -7,9 +7,11 @@ import 'package:ficha_paranormal/models/class.dart';
 import 'package:ficha_paranormal/utils/widgets/navigation_bar.dart';
 import 'package:ficha_paranormal/models/all_expertises.dart';
 import 'package:ficha_paranormal/models/expertise.dart';
+import 'package:ficha_paranormal/modules/record_area/controllers/record_area_controller.dart';
 
 class RecordAreaState extends State<RecordAreaScreen> {
   CharacterRecord? characterRecord;
+  final controller = RecordAreaController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +42,58 @@ class RecordAreaState extends State<RecordAreaScreen> {
                                   Text('INT: ${characterRecord.attributes.intellect}'),
                                   Text('PRE: ${characterRecord.attributes.presence}'),
                                   Text('VIG: ${characterRecord.attributes.vigor}'),
+                                  TextField(
+                                    controller: controller.agilityController,
+                                    decoration: InputDecoration(
+                                      hintText: 'agilidade'
+                                    ),
+                                  ),
+                                  TextField(
+                                    controller: controller.strengthController,
+                                    decoration: InputDecoration(
+                                      hintText: 'força'
+                                    ),
+                                  ),
+                                  TextField(
+                                    controller: controller.intelectController,
+                                    decoration: InputDecoration(
+                                      hintText: 'intelecto'
+                                    ),
+                                  ),
+                                  TextField(
+                                    controller: controller.presenceController,
+                                    decoration: InputDecoration(
+                                      hintText: 'presença'
+                                    ),
+                                  ),
+                                  TextField(
+                                    controller: controller.vigorController,
+                                    decoration: InputDecoration(
+                                      hintText: 'vigor'
+                                    ),
+                                  ),
                                   TextButton(
                                       onPressed: () {
+                                        if (!controller.isValid()) {
+                                          showDialog(
+                                            context: context,
+                                            builder: (_) {
+                                              return const AlertDialog(
+                                                content: Text('Nenhum atributo pode ultrapssar 5 pontos!'),
+                                              );
+                                            }
+                                          );
+                                        }
 
+                                        changeRecordAttributes(Attributes(
+                                            agility: int.parse(controller.agilityController.text),
+                                            strength: int.parse(controller.strengthController.text),
+                                            intellect: int.parse(controller.intelectController.text),
+                                            presence: int.parse(controller.presenceController.text),
+                                            vigor: int.parse(controller.vigorController.text)
+                                        ));
+
+                                        return;
                                       }, 
                                       child: const Text('alterar')
                                   )
@@ -136,5 +187,9 @@ class RecordAreaState extends State<RecordAreaScreen> {
       '/do_expertise_test',
       arguments: expertise,
     );
+  }
+
+  void changeRecordAttributes(Attributes attributes) {
+    characterRecord?.attributes = attributes;
   }
 }
